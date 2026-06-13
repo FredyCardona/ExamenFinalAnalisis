@@ -147,3 +147,7 @@ C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\obj\Debug\net10.0
 C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\obj\Debug\net10.0\EnviosRapidosGT.Api.pdb
 C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\obj\Debug\net10.0\EnviosRapidosGT.Api.genruntimeconfig.cache
 C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\obj\Debug\net10.0\ref\EnviosRapidosGT.Api.dll
+C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Flex\Desktop\ExamenFinal-Analisis\EnviosRapidosGT.Api\obj\Debug\net10.0\EnviosRapidosGT.Api.sourcelink.json

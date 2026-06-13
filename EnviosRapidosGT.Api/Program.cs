@@ -5,11 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Base de datos SQLite
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=envios.db"));
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+        ?? "Data Source=envios.db"
+    )
+);
 
+// Servicios propios
 builder.Services.AddScoped<EnvioService>();
 
+// Controladores y configuraci√≥n JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -17,17 +24,28 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.WriteIndented = true;
     });
 
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
+// Crear la base de datos autom√°ticamente si no existe
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureCreated();
 }
 
+// Activar Swagger
+app.UseSwagger();
+app.UseSwaggerUI();
+
+// Ruta principal
 app.MapGet("/", () => new
 {
-    mensaje = "API EnvÌos R·pidos GT funcionando",
+    mensaje = "API Envios Rapidos GT funcionando",
+    swagger = "/swagger",
     endpoints = new[]
     {
         "POST /api/envios",
@@ -41,7 +59,12 @@ app.MapGet("/", () => new
     }
 });
 
-app.MapGet("/health", () => new { status = "ok", fecha = DateTime.UtcNow });
+// Ruta de salud para Render
+app.MapGet("/health", () => new
+{
+    status = "ok",
+    fecha = DateTime.UtcNow
+});
 
 app.MapControllers();
 
